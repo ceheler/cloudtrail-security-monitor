@@ -1,0 +1,45 @@
+{
+  "Records": [
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROASANITIZED:terraform",
+        "arn": "arn:aws:sts::111122223333:assumed-role/TerraformExecutionRole/terraform",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROASANITIZED",
+            "arn": "arn:aws:iam::111122223333:role/TerraformExecutionRole",
+            "accountId": "111122223333",
+            "userName": "TerraformExecutionRole"
+          },
+          "attributes": {
+            "creationDate": "2026-09-23T15:00:00Z",
+            "mfaAuthenticated": "true"
+          }
+        }
+      },
+      "eventTime": "2026-09-23T16:29:41Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "DeleteVpc",
+      "awsRegion": "us-west-2",
+      "sourceIPAddress": "203.0.113.10",
+      "userAgent": "HashiCorp Terraform/1.x sanitized",
+      "requestParameters": {
+        "vpcId": "vpc-0123456789abcdef0"
+      },
+      "responseElements": {
+        "requestId": "sanitized-request-id",
+        "_return": true
+      },
+      "eventID": "33333333-3333-3333-3333-333333333333",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management"
+    }
+  ]
+}

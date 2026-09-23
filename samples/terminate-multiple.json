@@ -1,0 +1,53 @@
+{
+  "Records": [
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROASANITIZED:terraform",
+        "arn": "arn:aws:sts::111122223333:assumed-role/TerraformExecutionRole/terraform",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROASANITIZED",
+            "arn": "arn:aws:iam::111122223333:role/TerraformExecutionRole",
+            "accountId": "111122223333",
+            "userName": "TerraformExecutionRole"
+          },
+          "attributes": {
+            "creationDate": "2026-09-23T15:00:00Z",
+            "mfaAuthenticated": "true"
+          }
+        }
+      },
+      "eventTime": "2026-09-23T16:25:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "TerminateInstances",
+      "awsRegion": "us-west-2",
+      "sourceIPAddress": "203.0.113.10",
+      "userAgent": "HashiCorp Terraform/1.x sanitized",
+      "requestParameters": {
+        "instancesSet": {
+          "items": [
+            {
+              "instanceId": "i-0123456789abcdef0"
+            },
+            {
+              "instanceId": "i-0fedcba9876543210"
+            }
+          ]
+        }
+      },
+      "responseElements": {
+        "requestId": "sanitized-terminate-request"
+      },
+      "eventID": "44444444-4444-4444-4444-444444444444",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "Records": [
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROASANITIZED:terraform",
+        "arn": "arn:aws:sts::111122223333:assumed-role/TerraformExecutionRole/terraform",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROASANITIZED",
+            "arn": "arn:aws:iam::111122223333:role/TerraformExecutionRole",
+            "accountId": "111122223333",
+            "userName": "TerraformExecutionRole"
+          },
+          "attributes": {
+            "creationDate": "2026-09-23T15:00:00Z",
+            "mfaAuthenticated": "true"
+          }
+        }
+      },
+      "eventTime": "2026-09-23T17:00:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "DescribeInstances",
+      "awsRegion": "us-west-2",
+      "sourceIPAddress": "203.0.113.10",
+      "userAgent": "aws-cli/2.x sanitized",
+      "requestParameters": {},
+      "responseElements": null,
+      "eventID": "55555555-5555-5555-5555-555555555555",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management"
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROASANITIZED:terraform",
+        "arn": "arn:aws:sts::111122223333:assumed-role/TerraformExecutionRole/terraform",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROASANITIZED",
+            "arn": "arn:aws:iam::111122223333:role/TerraformExecutionRole",
+            "accountId": "111122223333",
+            "userName": "TerraformExecutionRole"
+          },
+          "attributes": {
+            "creationDate": "2026-09-23T15:00:00Z",
+            "mfaAuthenticated": "true"
+          }
+        }
+      },
+      "eventTime": "2026-09-23T17:01:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "TerminateInstances",
+      "awsRegion": "us-west-2",
+      "sourceIPAddress": "203.0.113.10",
+      "userAgent": "aws-cli/2.x sanitized",
+      "requestParameters": {
+        "instancesSet": {
+          "items": [
+            {
+              "instanceId": "i-0aaabbbcccdddeee1"
+            }
+          ]
+        }
+      },
+      "responseElements": null,
+      "errorCode": "Client.UnauthorizedOperation",
+      "errorMessage": "You are not authorized to perform this operation.",
+      "eventID": "66666666-6666-6666-6666-666666666666",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management"
+    },
+    {
+      "eventVersion": "1.11",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROASANITIZED:terraform",
+        "arn": "arn:aws:sts::111122223333:assumed-role/TerraformExecutionRole/terraform",
+        "accountId": "111122223333",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROASANITIZED",
+            "arn": "arn:aws:iam::111122223333:role/TerraformExecutionRole",
+            "accountId": "111122223333",
+            "userName": "TerraformExecutionRole"
+          },
+          "attributes": {
+            "creationDate": "2026-09-23T15:00:00Z",
+            "mfaAuthenticated": "true"
+          }
+        }
+      },
+      "eventTime": "2026-09-23T17:02:00Z",
+      "eventSource": "ec2.amazonaws.com",
+      "eventName": "DeleteVpc",
+      "awsRegion": "us-west-2",
+      "sourceIPAddress": "203.0.113.10",
+      "userAgent": "HashiCorp Terraform/1.x sanitized",
+      "requestParameters": {
+        "vpcId": "vpc-0abcabcabcabcabc1"
+      },
+      "responseElements": {
+        "_return": true
+      },
+      "eventID": "77777777-7777-7777-7777-777777777777",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": true,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Management"
+    }
+  ]
+}
