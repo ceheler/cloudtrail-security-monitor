@@ -1,12 +1,14 @@
-# Cloudtrail_Parser
+# Cloudtrail Security Monitor
 
 ## Overview
 
-This project was built to ingest CloudTrail logs and generate findings when selected security-relevant events are detected. Two detection rules were implemented and validated.  The structure of the detection algorithm allowed new detectors to be built without modifying the parser logic directly.
+CloudTrail Security Monitor ingests AWS CloudTrail logs and generates standardized findings for selected security-relevant API activity.
+
+The project currently implements and validates two detection rules. Detection logic is separated from parser and presentation logic so additional detectors can be registered without modifying the core parser workflow.
 
 ## Why I built it
 
-CloudTrail produces a lot of logs for the multitude of events which occur on a regular basis. Due to the volume and density of CloudTrail data, manually reviewing logs can be time-consuming and inefficient for analysts. The parser clears the clutter and allows easy-to-read output for only the events the analyst has chosen to treat as security-relevant.
+AWS CloudTrail can generate a large volume of API activity, making manual review inefficient as environments grow. This project demonstrates how raw CloudTrail telemetry can be filtered, normalized, and evaluated using security-focused detection rules so analysts can focus on activity that warrants investigation.
 
 ## Architecture
 
@@ -39,7 +41,16 @@ print_findings()
 
 ## Detection architecture
 
-Handling in place for empty and malformed data. One detection engine `detect_security_events` runs in the parser. The detection engine maintains a list of registered detector functions and evaluates each record against each detector. As detectors are added, their functions can be registered to the list without modifying the parser logic.
+Input validation handles empty or malformed data before records are evaluated by the detection engine. One detection engine `detect_security_events` runs in the parser. The detection engine maintains a list of registered detector functions and evaluates each record against each detector. As detectors are added, their functions can be registered to the list without modifying the parser logic.
+
+## Detection coverage
+
+| Rule | CloudTrail event | Purpose |
+| --- | --- | --- |
+| DeleteVpc | `DeleteVpc` | Identify VPC deletion activity |
+| TerminateInstances | `TerminateInstances` | Identify EC2 instance termination activity |
+
+These rules identify security-relevant API actions. They do not independently determine whether the actions were malicious or unauthorized.
 
 ## Current detection rules
 
@@ -98,7 +109,7 @@ Description: A VPC deletion event was detected. Please verify if this action was
 
 ## Detection validation methodology
 
-To validate design ground truth concepts were applied using my existing Terraform lab documented in my terraform-security-lab repository. I ran a `terraform apply` and noted the time. I then ran a `terraform destroy` and noted the time. Terraform was configured to operate through a known `TerraformExecutionRole`. Because I initiated both the apply and destroy operations, I knew the expected identity, approximate timeframe, affected resources, and reason for the resulting CloudTrail activity. I retrieved the corresponding logs from the S3 bucket configured for the CloudTrail trail and validated the parser's findings matched the known ground truth.
+TDetection rules were validated using known ground truth generated through the Terraform environment documented in the `terraform-security-lab` repository. I ran a `terraform apply` and noted the time. I then ran a `terraform destroy` and noted the time. Terraform was configured to operate through a known `TerraformExecutionRole`. Because I initiated both the apply and destroy operations, I knew the expected identity, approximate timeframe, affected resources, and reason for the resulting CloudTrail activity. I retrieved the corresponding logs from the S3 bucket configured for the CloudTrail trail and validated the parser's findings matched the known ground truth.
 
 ## Security considerations
 
